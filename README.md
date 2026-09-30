@@ -30,13 +30,11 @@ section.is-visible {
     transform: translateY(0);
 }
 
-/* 화면 위로 지나간 섹션은 자연스럽게 흐려짐 */
 section.has-passed {
     opacity: 0.18;
     transform: translateY(-25px);
 }
 
-/* 현재 보고 있는 섹션은 선명하게 */
 section.is-current {
     opacity: 1;
     transform: translateY(0);
@@ -61,8 +59,8 @@ section.is-current {
 .section-title p{color:#777}
 header{position:fixed;top:0;left:0;width:100%;height:76px;background:rgba(255,255,255,.96);border-bottom:1px solid #eee;z-index:1000}
 .header-inner{height:100%;display:flex;align-items:center;justify-content:space-between}
-.logo{font-size:22px;font-weight:800;color:#050990}
-.logo span{color:#ffc107}
+.logo{display:flex;align-items:center;justify-content:center;height:42px}
+.logo img{max-height:42px;width:auto;display:block}
 nav{display:flex;gap:32px}
 nav a{font-size:14px;font-weight:600;transition:.3s}
 nav a:hover{color:#050990}
@@ -82,18 +80,9 @@ nav a:hover{color:#050990}
 /* Vision & Mission Layout */
 .vision-mission{display:grid;grid-template-columns:1fr 1fr;gap:40px}
 .vm-item{display:flex;flex-direction:column;align-items:center;text-align:center}
-
-/* Large Centered English Titles Outside the Box */
-.vm-header-label{
-    font-size:32px;
-    font-weight:900;
-    letter-spacing:4px;
-    margin-bottom:18px;
-    text-align:center;
-    width:100%;
-}
-.vm-item.vision .vm-header-label{color:#ffc107;}
-.vm-item.mission .vm-header-label{color:#050990;}
+.vm-title-outside{display:block;font-size:32px;font-weight:900;letter-spacing:4px;margin-bottom:18px;text-align:center;width:100%}
+.vm-item.vision-item .vm-title-outside{color:#ffc107}
+.vm-item.mission-item .vm-title-outside{color:#050990}
 
 .vm-card{
     position:relative;
@@ -314,7 +303,7 @@ nav a:hover{color:#050990}
     .contact-methods{grid-template-columns:1fr}
     .contact-method{padding:20px}
 }
-.kakao-button{position:fixed;right:25px;bottom:25px;z-index:999;background:#ffc107;color:#111;width:65px;height:65px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;text-align:center;box-shadow:0 5px 20px rgba(0,0,0,.18);transition:.3s}
+.kakao-button{position:fixed;right:25px;bottom:25px;z-index:999;background:#ffc107;color:#111;width:65px;height:65px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;line-height:1.3;text-align:center;box-shadow:0 12px 28px rgba(255,193,7,.35)}
 .kakao-button:hover{transform:scale(1.08)}
 footer{background:#111;color:#888;padding:35px 0;font-size:13px}
 .footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
@@ -323,8 +312,7 @@ footer{background:#111;color:#888;padding:35px 0;font-size:13px}
 nav{gap:15px}nav a{font-size:12px}.service-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:650px){
-section{padding:70px 0}header{height:65px}.logo{font-size:18px}nav{display:none}.hero{min-height:650px;padding-top:65px}.hero h1{font-size:42px;letter-spacing:-2px}.hero-description{font-size:15px}.section-title h2{font-size:28px}.vision-mission{grid-template-columns:1fr}.vm-header-label{font-size:26px}.vm-card{padding:30px}.vm-top{gap:14px}.vm-icon{width:95px;height:95px;flex-basis:95px}.vm-icon svg{width:65px;height:65px}.vm-card h3{font-size:22px}.service-grid{grid-template-columns:1fr}.certificate-card{min-height:210px;flex:0 0 280px}.contact-info{flex-direction:column;gap:18px}.kakao-button{width:58px;height:58px;right:18px;bottom:18px}.footer-inner{flex-direction:column}
-}
+section{padding:70px 0}header{height:65px}.logo{height:34px}.logo img{max-height:34px}nav{display:none}.hero{min-height:650px;padding-top:65px}.hero h1{font-size:42px;letter-spacing:-2px}.hero-description{font-size:15px}.section-title h2{font-size:28px}.vision-mission{grid-template-columns:1fr}.kakao-button{width:58px;height:58px;right:15px;bottom:15px;font-size:12px}.contact-buttons .btn{width:100%}}
 </style>
 </head>
 <body>
@@ -426,11 +414,9 @@ section{padding:70px 0}header{height:65px}.logo{font-size:18px}nav{display:none}
 </div>
 <div class="certificates-marquee">
 <div class="certificates-track">
-<!-- Original Set -->
 <div class="certificate-card"><div class="certificate-placeholder"><strong>인증서 이미지 01</strong>실제 인증서 이미지로 교체해주세요.</div></div>
 <div class="certificate-card"><div class="certificate-placeholder"><strong>인증서 이미지 02</strong>실제 인증서 이미지로 교체해주세요.</div></div>
 <div class="certificate-card"><div class="certificate-placeholder"><strong>인증서 이미지 03</strong>실제 인증서 이미지로 교체해주세요.</div></div>
-<!-- Duplicated Set for Infinite Loop Seamless Marquee -->
 <div class="certificate-card"><div class="certificate-placeholder"><strong>인증서 이미지 01</strong>실제 인증서 이미지로 교체해주세요.</div></div>
 <div class="certificate-card"><div class="certificate-placeholder"><strong>인증서 이미지 02</strong>실제 인증서 이미지로 교체해주세요.</div></div>
 <div class="certificate-card"><div class="certificate-placeholder"><strong>인증서 이미지 03</strong>실제 인증서 이미지로 교체해주세요.</div></div>
@@ -477,7 +463,9 @@ section{padding:70px 0}header{height:65px}.logo{font-size:18px}nav{display:none}
 <section class="contact" id="contact">
 <div class="container">
 <div class="section-title">
-<span class="eng">CONTACT
+<span class="eng">CONTACT</span>
+<h2>문의하기</h2>
+<p>제품과 제조환경에 맞는 준비 방향부터 전문적으로 상담해드립니다.</p>
 </div>
 <div class="contact-box">
 
@@ -515,8 +503,7 @@ section{padding:70px 0}header{height:65px}.logo{font-size:18px}nav{display:none}
 </a>
 </div>
 
-<p class="contact-notice">
-</p>
+<p class="contact-notice"></p>
 
 </div>
 </div>
@@ -530,7 +517,6 @@ section{padding:70px 0}header{height:65px}.logo{font-size:18px}nav{display:none}
 </footer>
 
 <a href="http://pf.kakao.com/_gTXBX/chat" target="_blank" class="kakao-button" aria-label="카카오톡 상담">카카오톡<br>상담</a>
-
 
 <script>
 (function () {
@@ -582,7 +568,7 @@ section{padding:70px 0}header{height:65px}.logo{font-size:18px}nav{display:none}
     }
 
     window.addEventListener("scroll", updatePassedSections, { passive: true });
-window.addEventListener("resize", updatePassedSections);
+    window.addEventListener("resize", updatePassedSections);
     updatePassedSections();
 })();
 </script>
