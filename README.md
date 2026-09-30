@@ -13,50 +13,24 @@ a{text-decoration:none;color:inherit}
 .container{width:90%;max-width:1180px;margin:auto}
 section{padding:100px 0}
 
-/* =========================
-   Scroll Fade Animation
-========================= */
-
 section {
     opacity: 0;
     transform: translateY(35px);
-    transition:
-        opacity 0.8s ease,
-        transform 0.8s ease;
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
-
-section.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-section.has-passed {
-    opacity: 0.18;
-    transform: translateY(-25px);
-}
-
-section.is-current {
-    opacity: 1;
-    transform: translateY(0);
-}
-
+section.is-visible {opacity:1;transform:translateY(0)}
+section.has-passed {opacity:.18;transform:translateY(-25px)}
+section.is-current {opacity:1;transform:translateY(0)}
 @media (prefers-reduced-motion: reduce) {
-    section {
-        opacity: 1;
-        transform: none;
-        transition: none;
-    }
-
-    section.has-passed {
-        opacity: 1;
-        transform: none;
-    }
+  section{opacity:1;transform:none;transition:none}
+  section.has-passed{opacity:1;transform:none}
 }
 
 .section-title{text-align:center;margin-bottom:55px}
 .section-title .eng{display:block;color:#050990;font-size:13px;font-weight:800;letter-spacing:2px;margin-bottom:8px}
 .section-title h2{font-size:34px;color:#111;margin-bottom:10px}
 .section-title p{color:#777}
+
 header{position:fixed;top:0;left:0;width:100%;height:76px;background:rgba(255,255,255,.96);border-bottom:1px solid #eee;z-index:1000}
 .header-inner{height:100%;display:flex;align-items:center;justify-content:space-between}
 .logo{display:flex;align-items:center;justify-content:center;height:42px}
@@ -64,6 +38,7 @@ header{position:fixed;top:0;left:0;width:100%;height:76px;background:rgba(255,25
 nav{display:flex;gap:32px}
 nav a{font-size:14px;font-weight:600;transition:.3s}
 nav a:hover{color:#050990}
+
 .hero{min-height:760px;padding-top:76px;display:flex;align-items:center;background:linear-gradient(135deg,#f5f7ff,#fff 55%,#fffaf0)}
 .hero-content{max-width:760px}
 .hero-label{display:inline-block;color:#050990;font-size:14px;font-weight:800;letter-spacing:2px;margin-bottom:18px}
@@ -77,103 +52,29 @@ nav a:hover{color:#050990}
 .btn-yellow{background:#ffc107;color:#111}
 .btn-yellow:hover{transform:translateY(-2px)}
 
-/* Vision & Mission Layout */
 .vision-mission{display:grid;grid-template-columns:1fr 1fr;gap:40px}
 .vm-item{display:flex;flex-direction:column;align-items:center;text-align:center}
 .vm-title-outside{display:block;font-size:32px;font-weight:900;letter-spacing:4px;margin-bottom:18px;text-align:center;width:100%}
 .vm-item.vision-item .vm-title-outside{color:#ffc107}
 .vm-item.mission-item .vm-title-outside{color:#050990}
 
-.vm-card{
-    position:relative;
-    padding:42px;
-    border:2px solid #e8e8e8;
-    border-radius:24px;
-    background:#fff;
-    overflow:hidden;
-    width:100%;
-    flex-grow:1;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-}
-.vm-card.vision{
-    border-color:#ffc107;
-    background:linear-gradient(135deg,#fffdf5 0%,#fff 72%);
-}
-.vm-card.mission{
-    border-color:#050990;
-    background:linear-gradient(135deg,#f7f8ff 0%,#fff 72%);
-}
-.vm-top{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
-    gap:16px;
-    margin-bottom:20px;
-}
-.vm-icon{
-    width:110px;
-    height:110px;
-    flex:0 0 110px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
+.vm-card{position:relative;padding:42px;border:2px solid #e8e8e8;border-radius:24px;background:#fff;overflow:hidden;width:100%;flex-grow:1;display:flex;flex-direction:column;justify-content:center}
+.vm-card.vision{border-color:#ffc107;background:linear-gradient(135deg,#fffdf5 0%,#fff 72%)}
+.vm-card.mission{border-color:#050990;background:linear-gradient(135deg,#f7f8ff 0%,#fff 72%)}
+.vm-top{display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px;margin-bottom:20px}
+.vm-icon{width:110px;height:110px;flex:0 0 110px;border-radius:50%;display:flex;align-items:center;justify-content:center}
 .vision .vm-icon{background:#fff7d6}
 .mission .vm-icon{background:#eef1ff}
 .vm-icon svg{width:75px;height:75px}
-.vm-card h3{
-    font-size:25px;
-    line-height:1.35;
-    margin-bottom:0;
-    color:#050990;
-}
-.vm-card p{
-    color:#5f6d88;
-    font-size:15px;
-    text-align:center;
-    max-width:520px;
-    margin:0 auto;
-}
+.vm-card h3{font-size:25px;line-height:1.35;margin-bottom:0;color:#050990}
+.vm-card p{color:#5f6d88;font-size:15px;text-align:center;max-width:520px;margin:0 auto}
 
-/* Certificates Marquee */
 .certificates{background:#f7f8fc;overflow:hidden}
-.certificates-marquee{
-    display:flex;
-    width:100%;
-    overflow:hidden;
-    position:relative;
-    padding:10px 0;
-}
-.certificates-track{
-    display:flex;
-    gap:22px;
-    width:max-content;
-    animation: marqueeSlide 25s linear infinite;
-}
-.certificates-track:hover{
-    animation-play-state: paused;
-}
-@keyframes marqueeSlide {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-.certificate-card{
-    flex:0 0 340px;
-    min-height:250px;
-    background:#fff;
-    border:1px solid #e8e8e8;
-    border-radius:12px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:30px;
-    box-shadow:0 4px 15px rgba(0,0,0,.03);
-}
+.certificates-marquee{display:flex;width:100%;overflow:hidden;position:relative;padding:10px 0}
+.certificates-track{display:flex;gap:22px;width:max-content;animation:marqueeSlide 25s linear infinite}
+.certificates-track:hover{animation-play-state:paused}
+@keyframes marqueeSlide {0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.certificate-card{flex:0 0 340px;min-height:250px;background:#fff;border:1px solid #e8e8e8;border-radius:12px;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;box-shadow:0 4px 15px rgba(0,0,0,.03)}
 .certificate-placeholder{color:#aaa}
 .certificate-placeholder strong{display:block;color:#050990;font-size:17px;margin-bottom:7px}
 
@@ -187,132 +88,46 @@ nav a:hover{color:#050990}
 .service-card:nth-child(even) h3{color:#333}
 .service-card p{color:#777;font-size:14px}
 .service-list{margin-top:15px;padding-left:17px;color:#666;font-size:13px}
-.contact{
-    background:#f7f8fc;
-    color:#222;
-}
+
+.contact{background:#f7f8fc;color:#222}
 .contact .section-title .eng{color:#050990}
 .contact .section-title h2{color:#111}
 .contact .section-title p{color:#777}
-
-.contact-box{
-    max-width:1000px;
-    margin:auto;
-    background:#fff;
-    border:1px solid #e7e9f2;
-    border-radius:24px;
-    padding:55px 60px;
-    box-shadow:0 15px 40px rgba(5,9,144,.06);
-}
-
-.contact-intro{
-    text-align:center;
-    margin-bottom:35px;
-}
-.contact-intro h3{
-    font-size:28px;
-    color:#050990;
-    margin-bottom:10px;
-}
-.contact-intro p{
-    color:#777;
-    font-size:15px;
-}
-
-.contact-methods{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:18px;
-    margin-bottom:30px;
-}
-
-.contact-method{
-    display:flex;
-    align-items:center;
-    gap:18px;
-    padding:24px;
-    border:1px solid #e8e9ef;
-    border-radius:16px;
-    background:#fff;
-}
-.contact-method.kakao{
-    border-color:#ffe08a;
-    background:#fffdf5;
-}
-.contact-method.phone{
-    border-color:#cfd4ff;
-    background:#f9faff;
-}
-
-.contact-icon{
-    width:54px;
-    height:54px;
-    flex:0 0 54px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:24px;
-    font-weight:800;
-}
-.contact-method.kakao .contact-icon{
-    background:#ffc107;
-    color:#111;
-}
-.contact-method.phone .contact-icon{
-    background:#050990;
-    color:#fff;
-}
-
-.contact-method small{
-    display:block;
-    color:#888;
-    font-size:12px;
-    font-weight:700;
-    margin-bottom:3px;
-}
-.contact-method strong{
-    display:block;
-    color:#222;
-    font-size:17px;
-}
-
-.contact-buttons{
-    display:flex;
-    justify-content:center;
-    gap:12px;
-    flex-wrap:wrap;
-}
-.contact-buttons .btn{
-    min-width:190px;
-}
-
-.contact-notice{
-    margin-top:22px;
-    text-align:center;
-    color:#999;
-    font-size:12px;
-}
+.contact-box{max-width:1000px;margin:auto;background:#fff;border:1px solid #e7e9f2;border-radius:24px;padding:55px 60px;box-shadow:0 15px 40px rgba(5,9,144,.06)}
+.contact-intro{text-align:center;margin-bottom:35px}
+.contact-intro h3{font-size:28px;color:#050990;margin-bottom:10px}
+.contact-intro p{color:#777;font-size:15px}
+.contact-methods{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:30px}
+.contact-method{display:flex;align-items:center;gap:18px;padding:24px;border:1px solid #e8e9ef;border-radius:16px;background:#fff}
+.contact-method.kakao{border-color:#ffe08a;background:#fffdf5}
+.contact-method.phone{border-color:#cfd4ff;background:#f9faff}
+.contact-icon{width:54px;height:54px;flex:0 0 54px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800}
+.contact-method.kakao .contact-icon{background:#ffc107;color:#111}
+.contact-method.phone .contact-icon{background:#050990;color:#fff}
+.contact-method small{display:block;color:#888;font-size:12px;font-weight:700;margin-bottom:3px}
+.contact-method strong{display:block;color:#222;font-size:17px}
+.contact-buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.contact-buttons .btn{min-width:190px}
+.contact-notice{margin-top:22px;text-align:center;color:#999;font-size:12px}
 
 @media(max-width:650px){
-    .contact-box{
-        padding:35px 20px;
-        border-radius:18px;
-    }
-    .contact-intro h3{font-size:23px}
-    .contact-methods{grid-template-columns:1fr}
-    .contact-method{padding:20px}
+  .contact-box{padding:35px 20px;border-radius:18px}
+  .contact-intro h3{font-size:23px}
+  .contact-methods{grid-template-columns:1fr}
+  .contact-method{padding:20px}
 }
 .kakao-button{position:fixed;right:25px;bottom:25px;z-index:999;background:#ffc107;color:#111;width:65px;height:65px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;line-height:1.3;text-align:center;box-shadow:0 12px 28px rgba(255,193,7,.35)}
 .kakao-button:hover{transform:scale(1.08)}
 footer{background:#111;color:#888;padding:35px 0;font-size:13px}
 .footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .footer-logo{color:#fff;font-weight:800;font-size:17px}
+
 @media(max-width:900px){
-nav{gap:15px}nav a{font-size:12px}.service-grid{grid-template-columns:repeat(2,1fr)}
+  nav{gap:15px}nav a{font-size:12px}.service-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:650px){
-section{padding:70px 0}header{height:65px}.logo{height:34px}.logo img{max-height:34px}nav{display:none}.hero{min-height:650px;padding-top:65px}.hero h1{font-size:42px;letter-spacing:-2px}.hero-description{font-size:15px}.section-title h2{font-size:28px}.vision-mission{grid-template-columns:1fr}.kakao-button{width:58px;height:58px;right:15px;bottom:15px;font-size:12px}.contact-buttons .btn{width:100%}}
+  section{padding:70px 0}header{height:65px}.logo{height:34px}.logo img{max-height:34px}nav{display:none}.hero{min-height:650px;padding-top:65px}.hero h1{font-size:42px;letter-spacing:-2px}.hero-description{font-size:15px}.section-title h2{font-size:28px}.vision-mission{grid-template-columns:1fr}.kakao-button{width:58px;height:58px;right:15px;bottom:15px;font-size:12px}.contact-buttons .btn{width:100%}
+}
 </style>
 </head>
 <body>
@@ -320,7 +135,7 @@ section{padding:70px 0}header{height:65px}.logo{height:34px}.logo img{max-height
 <header>
 <div class="container header-inner">
 <a href="#home" class="logo">
-    <img src="logo.png" alt="더나은생활연구소">
+    <img src="logo.svg" alt="더나은생활연구소">
 </a>
 <nav>
 <a href="#about">회사소개</a>
@@ -495,12 +310,8 @@ section{padding:70px 0}header{height:65px}.logo{height:34px}.logo img{max-height
 </div>
 
 <div class="contact-buttons">
-<a href="http://pf.kakao.com/_gTXBX/chat" target="_blank" class="btn btn-yellow">
-카카오톡 상담하기
-</a>
-<a href="tel:070-8800-0330" class="btn btn-primary">
-☎전화 상담하기
-</a>
+<a href="http://pf.kakao.com/_gTXBX/chat" target="_blank" class="btn btn-yellow">카카오톡 상담하기</a>
+<a href="tel:070-8800-0330" class="btn btn-primary">☎전화 상담하기</a>
 </div>
 
 <p class="contact-notice"></p>
@@ -520,56 +331,49 @@ section{padding:70px 0}header{height:65px}.logo{height:34px}.logo img{max-height
 
 <script>
 (function () {
-    const sections = document.querySelectorAll("section");
+  const sections = document.querySelectorAll("section");
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    sections.forEach(section => section.classList.add("is-visible"));
+    return;
+  }
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        sections.forEach(section => section.classList.add("is-visible"));
-        return;
-    }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        entry.target.classList.remove("has-passed");
+        entry.target.classList.add("is-current");
+      }
+    });
+  }, {threshold:0.12});
 
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("is-visible");
-                    entry.target.classList.remove("has-passed");
-                    entry.target.classList.add("is-current");
-                }
-            });
-        },
-        {
-            threshold: 0.12
-        }
-    );
+  sections.forEach(section => observer.observe(section));
 
-    sections.forEach(section => observer.observe(section));
+  function updatePassedSections() {
+    const viewportTop = window.scrollY;
+    const viewportBottom = viewportTop + window.innerHeight;
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      const top = rect.top + window.scrollY;
+      const bottom = top + rect.height;
 
-    function updatePassedSections() {
-        const viewportTop = window.scrollY;
-        const viewportBottom = viewportTop + window.innerHeight;
+      if (bottom < viewportTop + 70) {
+        section.classList.add("has-passed");
+        section.classList.remove("is-current");
+      } else if (top < viewportBottom && bottom > viewportTop) {
+        section.classList.remove("has-passed");
+        section.classList.add("is-visible");
+        section.classList.add("is-current");
+      } else if (top > viewportBottom) {
+        section.classList.remove("has-passed");
+        section.classList.remove("is-current");
+      }
+    });
+  }
 
-        sections.forEach(section => {
-            const rect = section.getBoundingClientRect();
-            const top = rect.top + window.scrollY;
-            const bottom = top + rect.height;
-
-            if (bottom < viewportTop + 70) {
-                section.classList.add("has-passed");
-                section.classList.remove("is-current");
-            } else if (top < viewportBottom && bottom > viewportTop) {
-                section.classList.remove("has-passed");
-                section.classList.add("is-visible");
-                section.classList.add("is-current");
-            } else if (top > viewportBottom) {
-                section.classList.remove("has-passed");
-                section.classList.remove("is-current");
-            }
-        });
-    }
-
-    window.addEventListener("scroll", updatePassedSections, { passive: true });
-    window.addEventListener("resize", updatePassedSections);
-    updatePassedSections();
+  window.addEventListener("scroll", updatePassedSections, { passive: true });
+  window.addEventListener("resize", updatePassedSections);
+  updatePassedSections();
 })();
 </script>
 
